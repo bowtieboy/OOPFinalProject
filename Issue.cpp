@@ -1,4 +1,5 @@
 #include "Issue.h"
+#include <iostream>
 
 // Constructor defined in header
 Issue::Issue(std::string u, int c)
@@ -34,4 +35,12 @@ int Issue::getCategory()
 int Issue::getStatus()
 {
 	return status;
+}
+
+// Print issue function defined in header
+void Issue::printIssue()
+{
+	std::cout << "User name of issue creator: " << getUserName();
+	std::cout << "	Issue category: " << getCategory();
+	std::cout << "	Issue status: " << getStatus() << std::endl;
 }

@@ -17,6 +17,9 @@ public:
 	int getCategory();
 	int getStatus();
 
+	// Print issue prototype
+	void printIssue();
+
 private:
 	// Data members
 	std::string userName;

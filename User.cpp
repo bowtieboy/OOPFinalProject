@@ -1,7 +1,7 @@
-#include "User.h"
+#include "Issue.h"
 
 // Constructor defined in header
-User::User(std::string u, int c)
+Issue::Issue(std::string u, int c)
 {
 	userName = u;
 	category = c;
@@ -9,29 +9,29 @@ User::User(std::string u, int c)
 }
 
 // Setter functions defined in header
-void User::setUserName(std::string newName)
+void Issue::setUserName(std::string newName)
 {
 	userName = newName;
 	return;
 }
-void User::setCategory(int newCat)
+void Issue::setCategory(int newCat)
 {
 	category = newCat;
 }
-void User::setStatus(int newStat)
+void Issue::setStatus(int newStat)
 {
 	status = newStat;
 }
 // Getter functions defined in header
-std::string User::getUserName()
+std::string Issue::getUserName()
 {
 	return userName;
 }
-int User::getCategory()
+int Issue::getCategory()
 {
 	return category;
 }
-int User::getStatus()
+int Issue::getStatus()
 {
 	return status;
 }

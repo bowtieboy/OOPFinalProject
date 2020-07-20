@@ -1,11 +1,11 @@
 #pragma once
 #include <string>
 
-class User
+class Issue
 {
 public:
 	// Constructor
-	User(std::string u, int c);
+	Issue(std::string u, int c);
 
 	// Setter prototypes
 	void setUserName(std::string newName);

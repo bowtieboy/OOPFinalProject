@@ -7,11 +7,12 @@ public:
 	// Constructor
 	User(std::string u, int c);
 
-	// Setters
+	// Setter prototypes
 	void setUserName(std::string newName);
 	void setCategory(int newCat);
 	void setStatus(int newStat);
-	// Getters
+	
+	// Getter prototypes
 	std::string getUserName();
 	int getCategory();
 	int getStatus();

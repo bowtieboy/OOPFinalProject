@@ -5,7 +5,7 @@
 Issue::Issue(std::string u, int c)
 {
 	userName = u;
-	category = c;
+	setCategory(c);
 	status = 0; // Status starts as unresolved
 }
 
@@ -17,7 +17,10 @@ void Issue::setUserName(std::string newName)
 }
 void Issue::setCategory(int newCat)
 {
-	category = newCat;
+	if (newCat < 4 && newCat > 0)
+		category = newCat;
+	else
+		std::cout << "Incorrect Entery" << std::endl;
 }
 void Issue::setStatus(int newStat)
 {
@@ -35,6 +38,15 @@ int Issue::getCategory()
 int Issue::getStatus()
 {
 	return status;
+}
+
+void Issue::issueList()
+{
+	std::cout << "Select your issue from the list below:" << std::endl;
+	std::cout << "1. Computer" << std::endl;
+	std::cout << "2. Software" << std::endl;
+	std::cout << "3. Hardware" << std::endl;
+	std::cout << "1. Facility" << std::endl;
 }
 
 // Print issue function defined in header

@@ -20,6 +20,9 @@ public:
 	// Print issue prototype
 	void printIssue();
 
+	// Prints the issues for the user to choose from
+	void issueList();
+
 private:
 	// Data members
 	std::string userName;

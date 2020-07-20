@@ -1,6 +1,6 @@
 # Object Oriented Programming Final Project
 
-Create a ervice desk app where there will be a user interface and a admin interface
+Create a service desk app where there will be a user interface and an admin interface
 
 User:
 The user must enter their first initial attached to their last name, "mlima"

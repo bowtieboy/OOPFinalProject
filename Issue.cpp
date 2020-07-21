@@ -5,7 +5,7 @@
 Issue::Issue(std::string u, int c)
 {
 	userName = u;
-	setCategory(c);
+	setCategory(c); // This is using the function in order to make sure that the user input for selection is within the bounds
 	status = 0; // Status starts as unresolved
 }
 

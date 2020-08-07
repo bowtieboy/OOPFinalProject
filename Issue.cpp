@@ -21,10 +21,12 @@ void Issue::setCategory(int newCat)
 		category = newCat;
 	else
 		std::cout << "Incorrect Entery" << std::endl;
+	return;
 }
 void Issue::setStatus(int newStat)
 {
 	status = newStat;
+	return;
 }
 // Getter functions defined in header
 std::string Issue::getUserName()

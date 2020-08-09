@@ -80,7 +80,7 @@ bool loginAsClient()
 		// If no username was found, ask the user if they would like to create an admin account
 		else
 		{
-			cout << "No admin account was found that had the username " << userAttempt << ". Would you like to create one (y/n): ";
+			cout << "No admin account was found that had the username " << userAttempt << ". Would you like to create one (y/n)?: ";
 			string createAdminInput;
 			getline(cin, createAdminInput);
 
@@ -106,7 +106,29 @@ bool loginAsClient()
 	// Otherwise if the client is a user
 	else if (user == 2)
 	{
+		// If a user exists with the given username, log them in
+		if (checkUser(userAttempt))
+		{
+			cout << "You are now logged in as " << userAttempt << endl;
+			return true;
+		}
+		// Otherwise ask if they would like to create a new user
+		else
+		{
+			cout << "No user account was found that had the username " << userAttempt << ". Would you like to create one (y/n)?: ";
+			string createUserInput;
+			getline(cin, createUserInput);
 
+			// If they would like to create a new user
+			if (createUserInput == "y")
+			{
+
+			}
+			else
+			{
+
+			}
+		}
 	}
 	// Otherwise restart the loop
 	else
@@ -174,4 +196,23 @@ int checkAdmin(string userCheck, string passCheck)
 
 	// Return that no username was found that matched the given
 	return returnVal;
+}
+
+bool checkUser(string userCheck)
+{
+	// Iterate through the vector
+	for (int i = 0; i < users.size(); i++)
+	{
+		// If a mathing username is found
+		if (userCheck == users[i].getUsername())
+		{
+			// Set the active user
+			activeUser = &users[i];
+			// Return that a match was found
+			return true;
+		}
+	}
+
+	// Return that no match was found
+	return false;
 }

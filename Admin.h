@@ -24,7 +24,7 @@ public:
 	void printList();
 
 	// Change the status for a selected issue
-	void updateStatus();
+	int updateStatus();
 
 private:
 	std::string password;

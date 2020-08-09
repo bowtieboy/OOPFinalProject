@@ -18,6 +18,6 @@ public:
 	// Polymorphic
 	virtual bool login() = 0;
 
-private:
+protected:
 	std::string username;
 };

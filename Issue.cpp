@@ -45,10 +45,10 @@ int Issue::getStatus()
 void Issue::issueList()
 {
 	std::cout << "Select your issue from the list below:" << std::endl;
-	std::cout << "1. Computer" << std::endl;
+	std::cout << "1. Facility" << std::endl;
 	std::cout << "2. Software" << std::endl;
 	std::cout << "3. Hardware" << std::endl;
-	std::cout << "1. Facility" << std::endl;
+	std::cout << "4. Other" << std::endl;
 }
 
 // Print issue function defined in header

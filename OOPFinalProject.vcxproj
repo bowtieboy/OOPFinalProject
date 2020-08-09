@@ -141,14 +141,22 @@
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="FacilitiesIssue.cpp" />
+    <ClCompile Include="HardwareIssue.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Issue.cpp" />
+    <ClCompile Include="OtherIssue.cpp" />
+    <ClCompile Include="SoftwareIssue.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="FacilitiesIssue.h" />
+    <ClInclude Include="HardwareIssue.h" />
     <ClInclude Include="Issue.h" />
+    <ClInclude Include="OtherIssue.h" />
+    <ClInclude Include="SoftwareIssue.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

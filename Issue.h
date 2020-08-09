@@ -11,7 +11,7 @@ public:
 	void setUserName(std::string newName);
 	void setCategory(int newCat);
 	void setStatus(int newStat);
-	
+	 
 	// Getter prototypes
 	std::string getUserName();
 	int getCategory();

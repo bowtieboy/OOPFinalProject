@@ -22,12 +22,6 @@ std::string Admin::getPassword()
 	return password;
 }
 
-// Polymorphic function
-bool Admin::login(std::string nameInput, std::string passwordInput)
-{
-	return (nameInput == getUsername() && passwordInput == getPassword()) ? true : false;
-}
-
 // Print a list of the issues
 void Admin::printList()
 {
@@ -38,7 +32,7 @@ void Admin::printList()
 // The options for the user to select from to update the progress on the problem
 int Admin::updateStatus()
 { 
-	int selection = -1;
+	int selection;
 	std::string selectionString;
 	// TODO: Have admin select the issue they are going to modify
 

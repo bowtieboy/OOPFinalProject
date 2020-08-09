@@ -15,9 +15,6 @@ public:
 	// Getters
 	std::string getUsername();
 
-	// Polymorphic
-	virtual bool login() = 0;
-
 protected:
 	std::string username;
 };

@@ -1,20 +1,24 @@
 #pragma once
 #include <string>
-#include "client.h"
+#include "Client.h"
+#include "Issue.h"
 
-class User : Client
+class User : public Client
 {
 public:
 	// Constructor
 	User(std::string u);
 
 	// Create an issue to be resolved by admin
-	void setIssue();
+	Issue setIssue();
 
 	// Get the status of a given issue
 	void getStatus(std::string issueName);
 
-	virtual bool login(std::string nameInput);
+	// List the issues created by this user
+	void listMyIssues();
 
-private:
+	// Polymorphic function
+	bool login(std::string nameInput);
+
 };

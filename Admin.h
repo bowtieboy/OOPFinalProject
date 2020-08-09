@@ -4,7 +4,7 @@
 
 // TODO: Nothing(?)
 
-class Admin : Client
+class Admin : public Client
 {
 public:
 
@@ -16,9 +16,6 @@ public:
 
 	// Getters
 	std::string getPassword();
-
-	// Polymorphic function
-	virtual bool login(std::string nameInput, std::string passwordInput);
 
 	// Print a list of the issues
 	void printList();

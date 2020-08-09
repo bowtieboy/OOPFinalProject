@@ -2,16 +2,19 @@
 #include <string>
 #include "client.h"
 
-// TODO: The entire thing
-
 class User : Client
 {
 public:
+	// Constructor
 	User(std::string u);
 
+	// Create an issue to be resolved by admin
 	void setIssue();
 
-	void getStatus();
+	// Get the status of a given issue
+	void getStatus(std::string issueName);
+
+	virtual bool login(std::string nameInput);
 
 private:
 };

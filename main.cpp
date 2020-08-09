@@ -1,7 +1,15 @@
 #include <iostream>
 #include "Admin.h"
 #include "User.h"
+#include "Issue.h"
 #include <vector>
+
+/*
+	TODO Matt: Finish implementing the user functionality
+	TODO Dylan: Implement the issue functionality
+	TODO Andrew: Debugging (for now)
+*/
+
 
 using namespace std;
 
@@ -9,7 +17,7 @@ using namespace std;
 bool loginAsClient();
 int getClientType();
 void createAdmin(string newUsername, string newPassword);
-User createUser();
+void createUser(string newUsername);
 int checkAdmin(string userCheck, string passCheck);
 bool checkUser(string userCheck);
 
@@ -21,6 +29,7 @@ User* activeUser;
 // Vectors for the database
 vector<Admin> admins;
 vector<User> users;
+vector<Issue*> issues;
 
 
 int main()
@@ -124,6 +133,13 @@ void createAdmin(string newUsername, string newPassword)
 {
 	Admin newAdmin = Admin(newUsername, newPassword);
 	admins.push_back(newAdmin);
+	return;
+}
+
+void createUser(string newUsername)
+{
+	User newUser = User(newUsername);
+	users.push_back(newUser);
 	return;
 }
 

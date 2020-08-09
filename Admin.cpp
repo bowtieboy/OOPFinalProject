@@ -23,9 +23,18 @@ std::string Admin::getPassword()
 }
 
 // Print a list of the issues
-void Admin::printList()
+void Admin::printList(std::vector<Issue*> issues)
 {
+	std::cout << std::endl;
+	std::cout << "There are currently " << issues.size() << " issues in the database." << std::endl;
 
+	// Iterate through the list of issues
+	for (int i = 0; i < issues.size(); i++)
+	{
+		std::cout << "Issue username: " << issues[i]->getUserName() << std::endl;
+	}
+
+	return;
 }
 
 

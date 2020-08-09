@@ -20,11 +20,14 @@ void createAdmin(string newUsername, string newPassword);
 void createUser(string newUsername);
 int checkAdmin(string userCheck, string passCheck);
 bool checkUser(string userCheck);
+void adminMenu();
+void userMenu();
 
 // Global variables used by the main class
-bool loggedIn;
+bool loggedIn, running;
 Admin* activeAdmin;
 User* activeUser;
+int currentActiveClient;
 
 // Vectors for the database
 vector<Admin> admins;
@@ -34,14 +37,40 @@ vector<Issue*> issues;
 
 int main()
 {
+	// Initialize the program as running
+	running = true;
 	// Initialize as logged out
 	loggedIn = false;
+	// Set current active client to invalid
+	currentActiveClient = -1;
 
-	// Wait for user to log in
-	while (!loggedIn)
+	while (running)
 	{
-		loggedIn = loginAsClient();
+		// Wait for user to log in
+		while (!loggedIn)
+		{
+			loggedIn = loginAsClient();
+		}
+
+		// If client is logged in as admin
+		if (currentActiveClient == 1)
+		{
+			adminMenu();
+		}
+		// If client is logged in as user
+		else if (currentActiveClient == 2)
+		{
+			userMenu();
+		}
+		// If any other value exists (in which case a bug has occurred)
+		else
+		{
+			cout << "This is not a valid state for the database. Please restart the system and report to an admin." << endl;
+			break;
+		}
+
 	}
+	
 
 	return 0;
 }
@@ -68,6 +97,7 @@ bool loginAsClient()
 		if (adminCheck == 1)
 		{
 			cout << "You are now logged in as " << userAttempt << endl;
+			currentActiveClient = 1;
 			return true;
 		}
 		// If the username exists but the password was wrong, state that
@@ -110,6 +140,7 @@ bool loginAsClient()
 		if (checkUser(userAttempt))
 		{
 			cout << "You are now logged in as " << userAttempt << endl;
+			currentActiveClient = 2;
 			return true;
 		}
 		// Otherwise ask if they would like to create a new user
@@ -122,11 +153,12 @@ bool loginAsClient()
 			// If they would like to create a new user
 			if (createUserInput == "y")
 			{
-
+				createUser(userAttempt);
+				return false;
 			}
 			else
 			{
-
+				return false;
 			}
 		}
 	}
@@ -215,4 +247,49 @@ bool checkUser(string userCheck)
 
 	// Return that no match was found
 	return false;
+}
+
+void adminMenu()
+{
+	cout << endl;
+	cout << "Hello admin. Please select an option: " << endl;
+	cout << "(1) Update password" << endl;
+	cout << "(2) View all known issues" << endl;
+	cout << "(3) Change the status of an issue" << endl;
+	cout << "(4) Sign out of the database" << endl;
+	cout << "(5) Close the database" << endl;
+	cout << "What is your selection?: ";
+	string adminInputStr;
+	int adminInput = -1;
+	getline(cin, adminInputStr);
+	adminInput = stoi(adminInputStr);
+
+	switch (adminInput)
+	{
+	case 1:	{
+		cout << "What would you like your new password to be?: ";
+		string newPassword;
+		getline(cin, newPassword);
+		activeAdmin->setPassword(newPassword);
+		cout << "Your password has been updated!" << endl;
+		break;
+		};
+	case 2:
+		activeAdmin->printList(issues);
+		break;
+	case 3:
+		break;
+	case 4:
+		break;
+	case 5:
+		break;
+	default:
+		cout << "That is not a valid option!" << endl;
+		break;
+	}
+}
+
+void userMenu()
+{
+
 }

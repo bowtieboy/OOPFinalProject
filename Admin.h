@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
+#include <vector>
 #include "Client.h"
+#include "Issue.h"
 
 // TODO: Nothing(?)
 
@@ -18,7 +20,7 @@ public:
 	std::string getPassword();
 
 	// Print a list of the issues
-	void printList();
+	void printList(std::vector<Issue*> issues);
 
 	// Change the status for a selected issue
 	int updateStatus();

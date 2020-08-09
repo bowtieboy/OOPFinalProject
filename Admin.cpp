@@ -38,7 +38,8 @@ void Admin::printList()
 // The options for the user to select from to update the progress on the problem
 int Admin::updateStatus()
 { 
-	int selection;
+	int selection = -1;
+	std::string selectionString;
 	// TODO: Have admin select the issue they are going to modify
 
 	// The default would be pending when it starts.
@@ -46,7 +47,8 @@ int Admin::updateStatus()
 	std::cout << "1. Resolved" << std::endl;
 	std::cout << "2. Unresolved" << std::endl;
 	std::cout << "3. Opened" << std::endl;
-	std::cin >> selection;
+	std::getline(std::cin, selectionString);
+	selection = stoi(selectionString);
 
 	return selection;
 }

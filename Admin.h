@@ -18,7 +18,7 @@ public:
 	std::string getPassword();
 
 	// Polymorphic function
-	bool login(std::string nameInput, std::string passwordInput);
+	virtual bool login(std::string nameInput, std::string passwordInput);
 
 	// Print a list of the issues
 	void printList();

@@ -113,6 +113,7 @@ bool loginAsClient()
 				getline(cin, creatingPassword);
 				createAdmin(userAttempt, creatingPassword);
 				activeAdmin = &admins.back();
+				currentActiveClient = 1;
 				return true;
 			}
 			// Otherwise indent the menu and start again
@@ -145,6 +146,7 @@ bool loginAsClient()
 			{
 				createUser(userAttempt);
 				activeUser = &users.back();
+				currentActiveClient = 2;
 				return true;
 			}
 			else

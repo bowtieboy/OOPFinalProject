@@ -108,10 +108,7 @@ bool loginAsClient()
 			// If they would like to create a user, call the function
 			if (createAdminInput == "y")
 			{
-				string creatingPassword;
-				cout << "Enter the password for the new admin: ";
-				getline(cin, creatingPassword);
-				createAdmin(userAttempt, creatingPassword);
+				createAdmin(userAttempt, passwordAttempt);
 				activeAdmin = &admins.back();
 				currentActiveClient = 1;
 				return true;

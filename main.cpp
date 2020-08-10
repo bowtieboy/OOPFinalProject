@@ -112,7 +112,8 @@ bool loginAsClient()
 				cout << "Enter the password for the new admin: ";
 				getline(cin, creatingPassword);
 				createAdmin(userAttempt, creatingPassword);
-				return false;
+				activeAdmin = &admins.back();
+				return true;
 			}
 			// Otherwise indent the menu and start again
 			else
@@ -143,7 +144,8 @@ bool loginAsClient()
 			if (createUserInput == "y")
 			{
 				createUser(userAttempt);
-				return false;
+				activeUser = &users.back();
+				return true;
 			}
 			else
 			{

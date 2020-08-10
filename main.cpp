@@ -4,6 +4,10 @@
 #include "Issue.h"
 #include <vector>
 
+// - Create the user code
+// - Finish the admin update status function
+// - Intergrate issues into the code
+
 using namespace std;
 
 // Function prototypes used by main

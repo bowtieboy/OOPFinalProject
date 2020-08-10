@@ -17,7 +17,7 @@ void Issue::setUserName(std::string newName)
 }
 void Issue::setCategory(int newCat)
 {
-	if (newCat < 4 && newCat > 0)
+	if (newCat <= 4 && newCat > 0)
 		category = newCat;
 	else
 		std::cout << "Incorrect Entery" << std::endl;

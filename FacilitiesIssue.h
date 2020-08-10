@@ -1,7 +1,7 @@
 #include <string>
 #include "Issue.h"
 
-class Facilities : Issue
+class Facilities : public Issue
 {
 public:
 	Facilities(std::string u, int number);

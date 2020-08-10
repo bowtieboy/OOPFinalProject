@@ -2,6 +2,7 @@
 #include <string>
 #include "Client.h"
 #include "Issue.h"
+#include <vector>
 
 class User : public Client
 {
@@ -10,12 +11,9 @@ public:
 	User(std::string u);
 
 	// Create an issue to be resolved by admin
-	Issue setIssue();
-
-	// Get the status of a given issue
-	void getStatus(std::string issueName);
+	Issue* setIssue();
 
 	// List the issues created by this user
-	void listMyIssues();
+	void listMyIssues(std::vector<Issue*> issues);
 
 };

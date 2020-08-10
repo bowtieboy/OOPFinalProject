@@ -4,8 +4,6 @@
 #include "Client.h"
 #include "Issue.h"
 
-// TODO: Nothing(?)
-
 class Admin : public Client
 {
 public:

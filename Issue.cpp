@@ -49,6 +49,11 @@ void Issue::issueList()
 	std::cout << "2. Software" << std::endl;
 	std::cout << "3. Hardware" << std::endl;
 	std::cout << "4. Other" << std::endl;
+	std::string issueCatStr;
+	int issueCat;
+	std::getline(std::cin, issueCatStr);
+	issueCat = std::stoi(issueCatStr);
+	setCategory(issueCat);
 }
 
 // Print issue function defined in header

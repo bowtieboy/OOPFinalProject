@@ -1,7 +1,7 @@
 #include <string>
 #include "Issue.h"
 
-class Hardware : Issue
+class Hardware : public Issue
 {
 public:
 	Hardware(std::string user, double cost);

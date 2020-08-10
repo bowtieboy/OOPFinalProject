@@ -1,8 +1,6 @@
 #include "Admin.h"
 #include <iostream>
 
-// TODO: Finish printList and updateStatus functions
-
 // Constructor
 Admin::Admin(std::string u, std::string p) : Client(u)
 {

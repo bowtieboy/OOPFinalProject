@@ -1,7 +1,5 @@
 #include "Client.h"
 
-// TODO: Nothing(?)
-
 Client::Client(std::string u)
 {
 	setUsername(u);

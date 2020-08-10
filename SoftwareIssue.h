@@ -1,7 +1,7 @@
 #include <string>
 #include "Issue.h"
 
-class Software : Issue
+class Software : public Issue
 {
 public:
 	Software(std::string user, double time);

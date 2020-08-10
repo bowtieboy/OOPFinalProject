@@ -1,7 +1,7 @@
 #include <string>
 #include "Issue.h"
 
-class Other : Issue
+class Other : public Issue
 {
 public:
 	Other(std::string user, std::string issue);

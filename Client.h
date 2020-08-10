@@ -1,8 +1,6 @@
 #pragma once
 #include <string>
 
-// TODO: Nothing(?)
-
 class Client
 {
 public:

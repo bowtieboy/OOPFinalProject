@@ -4,10 +4,6 @@
 #include "Issue.h"
 #include <vector>
 
-// - Create the user code
-// - Finish the admin update status function
-// - Intergrate issues into the code
-
 using namespace std;
 
 // Function prototypes used by main
@@ -98,7 +94,7 @@ bool loginAsClient()
 		// If the username exists but the password was wrong, state that
 		else if (adminCheck == 2)
 		{
-			cout << "The password you entered for " << userAttempt << "was incorrect. Try again." << endl;
+			cout << "The password you entered for " << userAttempt << " was incorrect. Try again." << endl;
 			cout << endl << endl;
 			return false;
 		}
@@ -112,12 +108,10 @@ bool loginAsClient()
 			// If they would like to create a user, call the function
 			if (createAdminInput == "y")
 			{
-				string creatingUsername, creatingPassword;
-				cout << "Enter the username for the new admin: ";
-				getline(cin, creatingUsername);
+				string creatingPassword;
 				cout << "Enter the password for the new admin: ";
 				getline(cin, creatingPassword);
-				createAdmin(creatingUsername, creatingPassword);
+				createAdmin(userAttempt, creatingPassword);
 				return false;
 			}
 			// Otherwise indent the menu and start again
@@ -263,6 +257,7 @@ void adminMenu()
 	// Do the action that the admin requested
 	switch (adminInput)
 	{
+		// Change the admins password
 	case 1:	{
 		cout << "What would you like your new password to be?: ";
 		string newPassword;
@@ -271,20 +266,56 @@ void adminMenu()
 		cout << "Your password has been updated!" << endl;
 		break;
 		};
+
+		  // Print all the issues that are in the database
 	case 2:
 		activeAdmin->printList(issues);
 		break;
-	case 3:
+	case 3: {
+
+		// Get the relevant information
+		string issueUsername, issueCatStr;
+		int issueCat;
+		bool issueFound = false;
+		cout << "Enter the username of the person who created the issue: ";
+		getline(cin, issueUsername);
+		cout << "Enter the category type of the issue: ";
+		getline(cin, issueCatStr);
+		issueCat = stoi(issueCatStr);
+
+		// Loop through the database
+		for (int i = 0; i < issues.size(); i++)
+		{
+			if (issueUsername == issues[i]->getUserName() && issueCat == issues[i]->getCategory())
+			{
+				// If the issue was found, update it
+				activeAdmin->updateStatus(issues[i]);
+				issueFound = true;
+			}
+		}
+
+		// If issue wasnt found, display error message
+		if (!issueFound)
+		{
+			cout << "No issue was found that matched the username and category given." << endl;
+		}
 
 		break;
+	}
+
+		// Log out of the database
 	case 4:
 		loggedIn = false;
 		cout << "You have signed out of the database!" << endl;
 		break;
+
+		// Close the program
 	case 5:
 		running = false;
 		cout << "Closing the database!" << endl;
 		break;
+
+		// If none of the other options were selected
 	default:
 		cout << "That is not a valid option!" << endl;
 		break;
@@ -297,10 +328,9 @@ void userMenu()
 	cout << endl;
 	cout << "Hello user. Please select an option:" << endl;
 	cout << "(1) Create a new issue" << endl;
-	cout << "(2) Check the status of an exisiting issue" << endl;
-	cout << "(3) List all my issues" << endl;
-	cout << "(4) Sign out of the database" << endl;
-	cout << "(5) Close the database" << endl;
+	cout << "(2) List all my issues" << endl;
+	cout << "(3) Sign out of the database" << endl;
+	cout << "(4) Close the database" << endl;
 	string userInputStr;
 	int userInput = -1;
 	getline(cin, userInputStr);
@@ -309,19 +339,33 @@ void userMenu()
 	// Do the action that the user requested
 	switch (userInput)
 	{
-	case 1:
+		// Create a new issue and push it onto the vector
+	case 1: {
+		Issue* newIssue = activeUser->setIssue();
+		issues.push_back(newIssue);
 		break;
+	}
+
+		// List the users issues
 	case 2:
+		activeUser->listMyIssues(issues);
 		break;
+
+		// Log out of the database
 	case 3:
-		break;
-	case 4:
 		loggedIn = false;
 		cout << "You have signed out of the database!" << endl;
 		break;
-	case 5:
+
+		// Quit the program
+	case 4:
 		running = false;
 		cout << "Closing the database!" << endl;
+		break;
+
+		// If none of the other options were selected
+	default:
+		cout << "That is not a valid option!" << endl;
 		break;
 	}
 }

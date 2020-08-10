@@ -4,13 +4,6 @@
 #include "Issue.h"
 #include <vector>
 
-/*
-	TODO Matt: Finish implementing the user functionality
-	TODO Dylan: Implement the issue functionality
-	TODO Andrew: Debugging (for now)
-*/
-
-
 using namespace std;
 
 // Function prototypes used by main
@@ -280,8 +273,12 @@ void adminMenu()
 	case 3:
 		break;
 	case 4:
+		loggedIn = false;
+		cout << "You have signed out of the database!" << endl;
 		break;
 	case 5:
+		running = false;
+		cout << "Closing the database!" << endl;
 		break;
 	default:
 		cout << "That is not a valid option!" << endl;

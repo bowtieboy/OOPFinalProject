@@ -31,7 +31,6 @@ vector<Admin> admins;
 vector<User> users;
 vector<Issue*> issues;
 
-
 int main()
 {
 	// Initialize the program as running
@@ -71,7 +70,6 @@ int main()
 
 	return 0;
 }
-
 
 // Logs the client in as either a user or an admin
 bool loginAsClient()
@@ -277,6 +275,7 @@ void adminMenu()
 		activeAdmin->printList(issues);
 		break;
 	case 3:
+
 		break;
 	case 4:
 		loggedIn = false;
@@ -317,8 +316,12 @@ void userMenu()
 	case 3:
 		break;
 	case 4:
+		loggedIn = false;
+		cout << "You have signed out of the database!" << endl;
 		break;
 	case 5:
+		running = false;
+		cout << "Closing the database!" << endl;
 		break;
 	}
 }

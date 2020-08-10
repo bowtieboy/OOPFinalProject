@@ -23,7 +23,7 @@ public:
 	void printList(std::vector<Issue*> issues);
 
 	// Change the status for a selected issue
-	int updateStatus();
+	void updateStatus(Issue* currentIssue);
 
 private:
 	std::string password;

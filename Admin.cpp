@@ -31,7 +31,7 @@ void Admin::printList(std::vector<Issue*> issues)
 	// Iterate through the list of issues
 	for (int i = 0; i < issues.size(); i++)
 	{
-		std::cout << "Issue username: " << issues[i]->getUserName() << std::endl;
+		issues[i]->printIssue();
 	}
 
 	return;
@@ -39,7 +39,7 @@ void Admin::printList(std::vector<Issue*> issues)
 
 
 // The options for the user to select from to update the progress on the problem
-int Admin::updateStatus()
+void Admin::updateStatus(Issue* currentIssue)
 { 
 	int selection;
 	std::string selectionString;
@@ -53,5 +53,8 @@ int Admin::updateStatus()
 	std::getline(std::cin, selectionString);
 	selection = stoi(selectionString);
 
-	return selection;
+	currentIssue->setStatus(selection);
+	std::cout << "The issue status has been updated!" << std::endl;
+
+	return;
 }

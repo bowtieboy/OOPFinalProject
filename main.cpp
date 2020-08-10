@@ -244,6 +244,7 @@ bool checkUser(string userCheck)
 
 void adminMenu()
 {
+	// Get input from admin
 	cout << endl;
 	cout << "Hello admin. Please select an option: " << endl;
 	cout << "(1) Update password" << endl;
@@ -257,6 +258,7 @@ void adminMenu()
 	getline(cin, adminInputStr);
 	adminInput = stoi(adminInputStr);
 
+	// Do the action that the admin requested
 	switch (adminInput)
 	{
 	case 1:	{
@@ -288,5 +290,31 @@ void adminMenu()
 
 void userMenu()
 {
+	// Get input from user
+	cout << endl;
+	cout << "Hello user. Please select an option:" << endl;
+	cout << "(1) Create a new issue" << endl;
+	cout << "(2) Check the status of an exisiting issue" << endl;
+	cout << "(3) List all my issues" << endl;
+	cout << "(4) Sign out of the database" << endl;
+	cout << "(5) Close the database" << endl;
+	string userInputStr;
+	int userInput = -1;
+	getline(cin, userInputStr);
+	userInput = stoi(userInputStr);
 
+	// Do the action that the user requested
+	switch (userInput)
+	{
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+	case 4:
+		break;
+	case 5:
+		break;
+	}
 }

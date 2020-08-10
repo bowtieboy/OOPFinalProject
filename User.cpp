@@ -24,10 +24,3 @@ void User::listMyIssues()
 {
 
 }
-
-// Function to allow user to login if given the correct username
-bool User::login(std::string nameInput)
-{
-	return (nameInput == username) ? true : false;
-}
-

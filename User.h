@@ -18,7 +18,4 @@ public:
 	// List the issues created by this user
 	void listMyIssues();
 
-	// Polymorphic function
-	bool login(std::string nameInput);
-
 };
